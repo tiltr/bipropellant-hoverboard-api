@@ -224,8 +224,8 @@ void HoverboardAPI::sendPWM(int16_t pwm, int16_t steer, char som) {
 
   writevals->code = Codes::setPointPWM;
 
-  writespeed->pwm[0] = pwm + steer;
-  writespeed->pwm[1] = pwm - steer;
+  writespeed->pwm[0] = pwm ;
+  writespeed->pwm[1] = steer;
 
   msg.len = sizeof(writevals->cmd) + sizeof(writevals->code) + sizeof(writespeed->pwm);
   protocol_post(&s, &msg);
